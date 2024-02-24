@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.Random;
+import java.util.*;
 
 public class CharacterDND {
     private int age;
@@ -13,12 +11,13 @@ public class CharacterDND {
     private Race raceType;
     private int maxHitPoints;
     private ArrayList<String> inventory;
+    private Map<Ability, Integer> abilityScores = new HashMap<>();
     Random rand = new Random();
     public CharacterDND(Class classType, Race raceType){
         this.classType=classType;
         this.raceType = raceType;
     }
-    public void assignRaceAbilityScore(){
+    public void assignRaceFeatures(){
         switch(raceType){
             case DRAGONBORN:
                 age = rand.nextInt(81);
@@ -115,51 +114,51 @@ public class CharacterDND {
                 break;
         }
     }
-    public void readUserInput(String input){
+    public void readUserInput(String raceInput, String classInput ){
         //checking race
-        if(input.contains("Dragonborn")){
+        if(raceInput.equalsIgnoreCase("Dragonborn")){
             this.raceType = Race.DRAGONBORN;
-        } else if (input.contains("Dwarf")){
+        } else if (raceInput.equalsIgnoreCase("Dwarf")){
             this.raceType = Race.DWARF;
-        }else if(input.contains("Elf")){
+        }else if(raceInput.equalsIgnoreCase("Elf")){
             this.raceType = Race.ELF;
-        }else if(input.contains("Gnome")){
+        }else if(raceInput.equalsIgnoreCase("Gnome")){
             this.raceType = Race.GNOME;
-        }else if(input.contains("Half-elf")){
+        }else if(raceInput.equalsIgnoreCase("Half-elf")){
             this.raceType = Race.HALFELF;
-        }else if(input.contains("Halfling")){
+        }else if(raceInput.equalsIgnoreCase("Halfling")){
             this.raceType = Race.HALFLING;
-        } else if(input.contains("Half-orc")){
+        } else if(raceInput.equalsIgnoreCase("Half-orc")){
             this.raceType = Race.HALFORC;
-        } else if(input.contains("Human")){
+        } else if(raceInput.equalsIgnoreCase("Human")){
             this.raceType = Race.HUMAN;
-        } else if(input.contains("Tiefling")){
+        } else if(raceInput.equalsIgnoreCase("Tiefling")){
             this.raceType = Race.TIEFLING;
         }
         //checking Class input
-        if(input.contains("Barbarian")){
+        if(classInput.equalsIgnoreCase("Barbarian")){
             this.classType= Class.BARBARIAN;
-        }else if(input.contains("Bard")){
+        }else if(classInput.equalsIgnoreCase("Bard")){
             this.classType = Class.BARD;
-        } else if(input.contains("Cleric")){
+        } else if(classInput.equalsIgnoreCase("Cleric")){
             this.classType = Class.CLERIC;
-        }else if(input.contains("Druid")){
+        }else if(classInput.equalsIgnoreCase("Druid")){
             this.classType = Class.DRUID;
-        }else if(input.contains("Fighter")){
+        }else if(classInput.equalsIgnoreCase("Fighter")){
             this.classType = Class.FIGHTER;
-        }else if(input.contains("Monk")){
+        }else if(classInput.equalsIgnoreCase("Monk")){
             this.classType = Class.MONK;
-        }else if(input.contains("Paladin")){
+        }else if(classInput.equalsIgnoreCase("Paladin")){
             this.classType = Class.PALADIN;
-        }else if(input.contains("Ranger")){
+        }else if(classInput.equalsIgnoreCase("Ranger")){
             this.classType = Class.RANGER;
-        }else if(input.contains("Rogue")){
+        }else if(classInput.equalsIgnoreCase("Rogue")){
             this.classType = Class.ROGUE;
-        }else if(input.contains("Sorcerer")){
+        }else if(classInput.equalsIgnoreCase("Sorcerer")){
             this.classType = Class.SORCERER;
-        }else if(input.contains("Warlock")){
+        }else if(classInput.equalsIgnoreCase("Warlock")){
             this.classType = Class.WARLOCK;
-        }else if(input.contains("Wizard")){
+        }else if(classInput.equalsIgnoreCase("Wizard")){
             this.classType = Class.WIZARD;
         }
         if(raceType == null || classType == null){
@@ -169,11 +168,15 @@ public class CharacterDND {
     public static void main(String[] args)
     {
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("Enter Race and Class:");
-        String userInput = myObj.nextLine();  // Read user input
+        System.out.println("Enter Race:");
+        String raceInput = myObj.nextLine();  // Read user input
+        System.out.println("Enter Class:");
+        String classInput = myObj.nextLine();
         CharacterDND character = new CharacterDND(null, null);
-        character.readUserInput(userInput);
+        character.readUserInput(raceInput,classInput);
         character = new CharacterDND(character.classType, character.raceType);
+        character.assignRaceFeatures();
+        character.assignClassFeatures();
         System.out.println("Character:"+ character.raceType+", "+character.classType);
     }
 

@@ -1,4 +1,4 @@
-public enum abilityScore {
+public enum Ability {
     STRENGTH,
     DEXTERITY,
     CONSTITUTION,
