@@ -13,6 +13,15 @@ public class CharacterDND {
         this.raceType = raceType;
         currentHitPoints = maxHitPoints;
     }
+    public void assignRaceAbilityScore(){
 
+    }
+    public static void main(String[] args)
+    {
+        String str = "MONDAY";
+        Race race1 = Race.DRAGONBORN;
+        CharacterDND character = new CharacterDND(Class.BARBARIAN,Race.DRAGONBORN);
+
+    }
 
 }
