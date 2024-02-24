@@ -93,24 +93,64 @@ public class CharacterDND {
                 }
                 break;
             case CLERIC:
+                maxHitPoints = 8;
+                for(int i = 0; i < level; i++){
+                    maxHitPoints += rand.nextInt(1,8);
+                }
                 break;
             case DRUID:
+                maxHitPoints = 8;
+                for(int i = 0; i < level; i++){
+                    maxHitPoints += rand.nextInt(1,8);
+                }
                 break;
             case FIGHTER:
+                maxHitPoints = 10;
+                for(int i = 0; i < level; i++){
+                    maxHitPoints += rand.nextInt(1,10);
+                }
                 break;
             case MONK:
+                maxHitPoints = 8;
+                for(int i = 0; i < level; i++){
+                    maxHitPoints += rand.nextInt(1,8);
+                }
                 break;
             case PALADIN:
+                maxHitPoints = 10;
+                for(int i = 0; i < level; i++){
+                    maxHitPoints += rand.nextInt(1,10);
+                }
                 break;
             case RANGER:
+                maxHitPoints = 10;
+                for(int i = 0; i < level; i++){
+                    maxHitPoints += rand.nextInt(1,10);
+                }
                 break;
             case ROGUE:
+                maxHitPoints = 8;
+                for(int i = 0; i < level; i++){
+                    maxHitPoints += rand.nextInt(1,8);
+                }
                 break;
             case SORCERER:
+                maxHitPoints = 6;
+                for(int i = 0; i < level; i++){
+                    maxHitPoints += rand.nextInt(1,6);
+                }
                 break;
             case WARLOCK:
+                maxHitPoints = 8;
+                for(int i = 0; i < level; i++){
+                    maxHitPoints += rand.nextInt(1,8);
+                }
                 break;
             case WIZARD:
+                maxHitPoints = 6;
+                for(int i = 0; i < level; i++){
+                    maxHitPoints += rand.nextInt(1,6);
+                }
                 break;
         }
     }
@@ -178,6 +218,11 @@ public class CharacterDND {
         character.assignRaceFeatures();
         character.assignClassFeatures();
         System.out.println("Character:"+ character.raceType+", "+character.classType);
+        System.out.println("Height: " + character.height + "\"");
+        System.out.println("Weight: " + character.weight + "lbs");
+        System.out.println("Speed: " + character.speed);
+        System.out.println("Max HP: " + character.maxHitPoints);
+
     }
 
 }
