@@ -82,8 +82,16 @@ public class CharacterDND {
     public void assignClassFeatures(){
         switch (classType){
             case BARBARIAN:
+                maxHitPoints = 12;
+                for(int i = 0; i < level; i++){
+                    maxHitPoints += rand.nextInt(1,12);
+                }
                 break;
             case BARD:
+                maxHitPoints = 8;
+                for(int i = 0; i < level; i++){
+                    maxHitPoints += rand.nextInt(1,8);
+                }
                 break;
             case CLERIC:
                 break;
