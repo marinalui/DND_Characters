@@ -154,6 +154,36 @@ public class CharacterDND {
                 break;
         }
     }
+
+    public void assignAbilityScore(Ability ability1, Ability ability2, Ability ability3){
+        int score1 = rollForStat();
+        int score2 = rollForStat();
+        int score3 = rollForStat();
+        int score4 = rollForStat();
+        int score5 = rollForStat();
+        int score6 = rollForStat();
+
+
+
+    }
+    public int rollForStat(){
+        int num1 = 1 + rand.nextInt(6);
+        int num2 = 1 + rand.nextInt(6);
+        int num3 = 1 + rand.nextInt(6);
+        int num4 = 1 + rand.nextInt(6);
+        int result = num1;
+        if(num2 < result){
+            result = num2;
+        }
+        if(num3 < result){
+            result = num3;
+        }
+        if(num4 < result){
+            result = num4;
+        }
+        return num1 + num2 + num3 + num4 - result;
+
+    }
     public void readUserInput(String raceInput, String classInput ){
         //checking race
         if(raceInput.equalsIgnoreCase("Dragonborn")){
