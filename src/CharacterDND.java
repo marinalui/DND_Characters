@@ -82,6 +82,7 @@ public class CharacterDND {
 
     }
     public void readUserInput(String input){
+        //checking race
         if(input.contains("Dragonborn")){
             this.raceType = Race.DRAGONBORN;
         } else if (input.contains("Dwarf")){
@@ -100,18 +101,45 @@ public class CharacterDND {
             this.raceType = Race.HUMAN;
         } else if(input.contains("Tiefling")){
             this.raceType = Race.TIEFLING;
-        } else{
-            System.out.println("A valid Race was not found.");
+        }
+        //checking Class input
+        if(input.contains("Barbarian")){
+            this.classType= Class.BARBARIAN;
+        }else if(input.contains("Bard")){
+            this.classType = Class.BARD;
+        } else if(input.contains("Cleric")){
+            this.classType = Class.CLERIC;
+        }else if(input.contains("Druid")){
+            this.classType = Class.DRUID;
+        }else if(input.contains("Fighter")){
+            this.classType = Class.FIGHTER;
+        }else if(input.contains("Monk")){
+            this.classType = Class.MONK;
+        }else if(input.contains("Paladin")){
+            this.classType = Class.PALADIN;
+        }else if(input.contains("Ranger")){
+            this.classType = Class.RANGER;
+        }else if(input.contains("Rogue")){
+            this.classType = Class.ROGUE;
+        }else if(input.contains("Sorcerer")){
+            this.classType = Class.SORCERER;
+        }else if(input.contains("Warlock")){
+            this.classType = Class.WARLOCK;
+        }else if(input.contains("Wizard")){
+            this.classType = Class.WIZARD;
+        }
+        if(raceType == null || classType == null){
+            System.out.println("A valid Race or Class was not found.");
         }
     }
     public static void main(String[] args)
     {
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("Enter race:");
+        System.out.println("Enter Race and Class:");
         String userInput = myObj.nextLine();  // Read user input
         CharacterDND character = new CharacterDND(null, null);
         character.readUserInput(userInput);
-        character = new CharacterDND(Class.BARBARIAN, character.raceType);
+        character = new CharacterDND(character.classType, character.raceType);
         System.out.println("Character:"+ character.raceType+", "+character.classType);
     }
 
