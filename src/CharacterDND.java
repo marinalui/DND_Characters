@@ -12,13 +12,11 @@ public class CharacterDND {
     private Class classType;
     private Race raceType;
     private int maxHitPoints;
-    private int currentHitPoints;
     private ArrayList<String> inventory;
     Random rand = new Random();
     public CharacterDND(Class classType, Race raceType){
         this.classType=classType;
         this.raceType = raceType;
-        currentHitPoints = maxHitPoints;
     }
     public void assignRaceAbilityScore(){
         switch(raceType){
@@ -80,6 +78,34 @@ public class CharacterDND {
                 break;
         }
 
+    }
+    public void assignClassFeatures(){
+        switch (classType){
+            case BARBARIAN:
+                break;
+            case BARD:
+                break;
+            case CLERIC:
+                break;
+            case DRUID:
+                break;
+            case FIGHTER:
+                break;
+            case MONK:
+                break;
+            case PALADIN:
+                break;
+            case RANGER:
+                break;
+            case ROGUE:
+                break;
+            case SORCERER:
+                break;
+            case WARLOCK:
+                break;
+            case WIZARD:
+                break;
+        }
     }
     public void readUserInput(String input){
         if(input.contains("Dragonborn")){
