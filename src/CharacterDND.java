@@ -155,15 +155,38 @@ public class CharacterDND {
         }
     }
 
-    public void assignAbilityScore(Ability ability1, Ability ability2, Ability ability3){
+    public void assignAbilityScore(Ability ability1, Ability ability2, Ability ability3, Ability ability4, Ability ability5, Ability ability6){
         int score1 = rollForStat();
         int score2 = rollForStat();
         int score3 = rollForStat();
         int score4 = rollForStat();
         int score5 = rollForStat();
         int score6 = rollForStat();
+        int[] sortedAbilities = {score1, score2, score3, score4, score5, score6};
+        for (int i = 0; i < sortedAbilities.length; i++) {
 
+            // Inner nested loop pointing 1 index ahead
+            for (int j = i + 1; j < sortedAbilities.length; j++) {
 
+                // Checking elements
+                int temp = 0;
+                if (sortedAbilities[j] < sortedAbilities[i]) {
+
+                    // Swapping
+                    temp = sortedAbilities[i];
+                    sortedAbilities[i] = sortedAbilities[j];
+                    sortedAbilities[j] = temp;
+                }
+            }
+            // Printing sorted array elements
+            System.out.print(sortedAbilities[i] + " ");
+        }
+        abilityScores.put(ability1,sortedAbilities[0]);
+        abilityScores.put(ability2, sortedAbilities[1]);
+        abilityScores.put(ability3, sortedAbilities[2]);
+        abilityScores.put(ability4, sortedAbilities[3]);
+        abilityScores.put(ability5, sortedAbilities[4]);
+        abilityScores.put(ability6, sortedAbilities[5]);
 
     }
     public int rollForStat(){
@@ -254,5 +277,4 @@ public class CharacterDND {
         System.out.println("Max HP: " + character.maxHitPoints);
 
     }
-
 }
