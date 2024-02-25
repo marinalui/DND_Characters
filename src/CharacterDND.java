@@ -303,7 +303,7 @@ public class CharacterDND {
         System.out.println("Weight: " + character.weight + "lbs");
         System.out.println("Speed: " + character.speed);
         System.out.println("Max HP: " + character.maxHitPoints);
-        System.out.println("Age"+ character.age);
+        System.out.println("Age: "+ character.age);
         System.out.println("Ability scores:" +character.abilityScores);
     }
 }
