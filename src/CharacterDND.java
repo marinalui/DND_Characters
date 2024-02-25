@@ -190,15 +190,13 @@ public class CharacterDND {
                     sortedAbilities[j] = temp;
                 }
             }
-            // Printing sorted array elements
-            System.out.print(sortedAbilities[i] + " ");
         }
-        abilityScores.put(ability1,sortedAbilities[0]);
-        abilityScores.put(ability2, sortedAbilities[1]);
-        abilityScores.put(ability3, sortedAbilities[2]);
-        abilityScores.put(ability4, sortedAbilities[3]);
-        abilityScores.put(ability5, sortedAbilities[4]);
-        abilityScores.put(ability6, sortedAbilities[5]);
+        abilityScores.put(ability1,sortedAbilities[5]);
+        abilityScores.put(ability2, sortedAbilities[4]);
+        abilityScores.put(ability3, sortedAbilities[3]);
+        abilityScores.put(ability4, sortedAbilities[2]);
+        abilityScores.put(ability5, sortedAbilities[1]);
+        abilityScores.put(ability6, sortedAbilities[0]);
 
     }
     public int rollForStat(){
@@ -220,6 +218,15 @@ public class CharacterDND {
 
     }
 
+    /**
+     * we should call these in the assignRaceFeatures
+     * @param strength the added bonus
+     * @param dexterity the added bonus
+     * @param constitution the added bonus
+     * @param intelligence the added bonus
+     * @param wisdom the added bonus
+     * @param charisma the added bonus
+     */
     public void raceStatUpdate(int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma){
         abilityScores.put(Ability.STRENGTH, abilityScores.get(Ability.STRENGTH) + strength);
         abilityScores.put(Ability.DEXTERITY, abilityScores.get(Ability.DEXTERITY) + dexterity);
@@ -296,6 +303,7 @@ public class CharacterDND {
         System.out.println("Weight: " + character.weight + "lbs");
         System.out.println("Speed: " + character.speed);
         System.out.println("Max HP: " + character.maxHitPoints);
-
+        System.out.println("Age"+ character.age);
+        System.out.println("Ability scores:" +character.abilityScores);
     }
 }
