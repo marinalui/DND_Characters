@@ -81,88 +81,99 @@ public class CharacterDND {
     public void assignClassFeatures(){
         switch (classType){
             case BARBARIAN:
+                assignAbilityScore(Ability.STRENGTH, Ability.CONSTITUTION, Ability.DEXTERITY, Ability.WISDOM, Ability.CHARISMA, Ability.INTELLIGENCE);
                 maxHitPoints = 12;
                 for(int i = 0; i < level; i++){
-                    maxHitPoints += rand.nextInt(1,12);
+                    maxHitPoints += 1 + rand.nextInt(12);
                 }
                 break;
             case BARD:
+                assignAbilityScore(Ability.CHARISMA, Ability.DEXTERITY, Ability.WISDOM, Ability.INTELLIGENCE, Ability.CONSTITUTION, Ability.STRENGTH);
                 maxHitPoints = 8;
                 for(int i = 0; i < level; i++){
-                    maxHitPoints += rand.nextInt(1,8);
+                    maxHitPoints += 1 + rand.nextInt(8);
                 }
                 break;
             case CLERIC:
+                assignAbilityScore(Ability.WISDOM, Ability.CONSTITUTION, Ability.STRENGTH, Ability.INTELLIGENCE, Ability.CHARISMA, Ability.DEXTERITY);
                 maxHitPoints = 8;
                 for(int i = 0; i < level; i++){
-                    maxHitPoints += rand.nextInt(1,8);
+                    maxHitPoints += 1 + rand.nextInt(8);
                 }
                 break;
             case DRUID:
+                assignAbilityScore(Ability.WISDOM, Ability.CONSTITUTION, Ability.INTELLIGENCE, Ability.DEXTERITY, Ability.STRENGTH, Ability.CHARISMA);
                 maxHitPoints = 8;
                 for(int i = 0; i < level; i++){
-                    maxHitPoints += rand.nextInt(1,8);
+                    maxHitPoints += 1 + rand.nextInt(8);
                 }
                 break;
             case FIGHTER:
+                assignAbilityScore(Ability.STRENGTH, Ability.DEXTERITY, Ability.CONSTITUTION, Ability.WISDOM, Ability.CHARISMA, Ability.INTELLIGENCE);
                 maxHitPoints = 10;
                 for(int i = 0; i < level; i++){
-                    maxHitPoints += rand.nextInt(1,10);
+                    maxHitPoints += 1 + rand.nextInt(10);
                 }
                 break;
             case MONK:
+                assignAbilityScore(Ability.DEXTERITY, Ability.WISDOM, Ability.CONSTITUTION, Ability.STRENGTH, Ability.INTELLIGENCE, Ability.CHARISMA);
                 maxHitPoints = 8;
                 for(int i = 0; i < level; i++){
-                    maxHitPoints += rand.nextInt(1,8);
+                    maxHitPoints += 1 + rand.nextInt(8);
                 }
                 break;
             case PALADIN:
+                assignAbilityScore(Ability.STRENGTH, Ability.CHARISMA, Ability.CONSTITUTION, Ability.WISDOM, Ability.INTELLIGENCE, Ability.DEXTERITY);
                 maxHitPoints = 10;
                 for(int i = 0; i < level; i++){
-                    maxHitPoints += rand.nextInt(1,10);
+                    maxHitPoints += 1 + rand.nextInt(10);
                 }
                 break;
             case RANGER:
+                assignAbilityScore(Ability.DEXTERITY, Ability.WISDOM, Ability.INTELLIGENCE, Ability.CONSTITUTION, Ability.STRENGTH, Ability.CHARISMA);
                 maxHitPoints = 10;
                 for(int i = 0; i < level; i++){
-                    maxHitPoints += rand.nextInt(1,10);
+                    maxHitPoints += 1 + rand.nextInt(10);
                 }
                 break;
             case ROGUE:
+                assignAbilityScore(Ability.DEXTERITY, Ability.CHARISMA, Ability.INTELLIGENCE, Ability.CONSTITUTION, Ability.WISDOM, Ability.STRENGTH);
                 maxHitPoints = 8;
                 for(int i = 0; i < level; i++){
-                    maxHitPoints += rand.nextInt(1,8);
+                    maxHitPoints += 1 + rand.nextInt(8);
                 }
                 break;
             case SORCERER:
+                assignAbilityScore(Ability.CHARISMA, Ability.CONSTITUTION, Ability.INTELLIGENCE, Ability.WISDOM, Ability.DEXTERITY, Ability.STRENGTH);
                 maxHitPoints = 6;
                 for(int i = 0; i < level; i++){
-                    maxHitPoints += rand.nextInt(1,6);
+                    maxHitPoints += 1 + rand.nextInt(6);
                 }
                 break;
             case WARLOCK:
+                assignAbilityScore(Ability.CHARISMA, Ability.CONSTITUTION, Ability.INTELLIGENCE, Ability.WISDOM, Ability.STRENGTH, Ability.DEXTERITY);
                 maxHitPoints = 8;
                 for(int i = 0; i < level; i++){
-                    maxHitPoints += rand.nextInt(1,8);
+                    maxHitPoints += 1 + rand.nextInt(8);
                 }
                 break;
             case WIZARD:
+                assignAbilityScore(Ability.INTELLIGENCE, Ability.CONSTITUTION, Ability.DEXTERITY, Ability.WISDOM, Ability.CHARISMA, Ability.STRENGTH);
                 maxHitPoints = 6;
                 for(int i = 0; i < level; i++){
-                    maxHitPoints += rand.nextInt(1,6);
+                    maxHitPoints += 1 + rand.nextInt(6);
                 }
                 break;
         }
     }
 
-    public void assignAbilityScore(Ability ability1, Ability ability2, Ability ability3){
+    public void assignAbilityScore(Ability ability1, Ability ability2, Ability ability3, Ability ability4, Ability ability5, Ability ability6){
         int score1 = rollForStat();
         int score2 = rollForStat();
         int score3 = rollForStat();
         int score4 = rollForStat();
         int score5 = rollForStat();
         int score6 = rollForStat();
-
 
 
     }
@@ -183,6 +194,15 @@ public class CharacterDND {
         }
         return num1 + num2 + num3 + num4 - result;
 
+    }
+
+    public void raceStatUpdate(int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma){
+        abilityScores.put(Ability.STRENGTH, abilityScores.get(Ability.STRENGTH) + strength);
+        abilityScores.put(Ability.DEXTERITY, abilityScores.get(Ability.DEXTERITY) + dexterity);
+        abilityScores.put(Ability.CONSTITUTION, abilityScores.get(Ability.CONSTITUTION) + constitution);
+        abilityScores.put(Ability.INTELLIGENCE, abilityScores.get(Ability.INTELLIGENCE) + intelligence);
+        abilityScores.put(Ability.WISDOM, abilityScores.get(Ability.WISDOM) + wisdom);
+        abilityScores.put(Ability.CHARISMA, abilityScores.get(Ability.CHARISMA) + charisma);
     }
     public void readUserInput(String raceInput, String classInput ){
         //checking race
